@@ -30,24 +30,21 @@ timestarted = timedelta(seconds=int(time.time()))
 
 @app.on_message(filters.command('start'))
 def start(client,message):
-    kb = [[InlineKeyboardButton('Channel 🛡', url="https://t.me/JayBeeBots"),InlineKeyboardButton('Support Group 🔰', url="https://t.me/JayBeeBotsSupport")]]
+    kb = [[InlineKeyboardButton('Channel 🛡', url="https://t.me/Tamil_Kingdom")]]
     reply_markup = InlineKeyboardMarkup(kb)
-    app.send_message(chat_id=message.from_user.id, text=f"Hello there, I am a __**Subtitle Downloader Bot**__.\nGive me a Movie/Series name and I will fetch it from __**Subscene**__.\n\n"
-                                                        "__**Developer :**__ __@JayBeeDev__\n"
-                                                        "__**Language :**__ __Python__\n"
-                                                        "__**Framework :**__ __🔥 Pyrogram__",
+    app.send_message(chat_id=message.from_user.id, text=f"Hello there, I am a __**Tamil kingdom's Subtitle Bot**__.\nGive me a Movie/Series name and I will fetch it from __**Internet**__.\n\n"
+                                                        "__**Owner     :**__ __@Tamil_Kingdom__",
                      parse_mode='md',
                      reply_markup=reply_markup)
 
 @app.on_message(filters.command('help'))
 def help(client,message):
-    url = [[InlineKeyboardButton(f"PayPal Me ❤️", url=f"https://paypal.me/JayBeeDev")],
-           [InlineKeyboardButton(f"Buy Me A Coffee ☕️", url=f"https://buymeacoffee.com/JayBee.Dev")]]
+    url = [[InlineKeyboardButton(f"Our Channel ❤️", url="https://t.me/Tamil_Kingdom")]]
     reply_markup = InlineKeyboardMarkup(url)
     message.reply_text(reply_to_message_id= message.message_id,text=f"Send me any Movie/Series name and I will -\n"
-    f"__ * Search for it on `Subscene.com`\n"
+    f"__ * Search for it \n"
     f" * Let you choose your preferable language.\n"
-    f" * Download the subtitle, unzip and upload in `.srt/.ass` format__", parse_mode='md', reply_markup=reply_markup)
+    f" * Upload in `.srt/.ass` format__", parse_mode='md', reply_markup=reply_markup)
 
 
 @app.on_message(filters.command('uptime'))
@@ -172,8 +169,9 @@ def searchprev(client, callback_query):
 def chooselang(client, callback_query):
     sublink = callback_query.data.split('*')[-1]
     kb = [[InlineKeyboardButton("English 🇬🇧", callback_data=f'PREL*english*{sublink}')],
+          [InlineKeyboardButton("Tamil 🇮🇳", callback_data=f'PREL*tamil*{sublink}')],
           [InlineKeyboardButton("Bengali 🇧🇩", callback_data=f'PREL*bengali*{sublink}')],
-          [InlineKeyboardButton("Hindi 🇮🇳", callback_data=f'PRE*hindi*{sublink}')],
+          [InlineKeyboardButton("Hindi 🇮🇳", callback_data=f'PREL*hindi*{sublink}')],
           [InlineKeyboardButton("Indonesian 🇮🇩", callback_data=f'PREL*indonesian*{sublink}')]]
     reply_markup = InlineKeyboardMarkup(kb)
     app.edit_message_text(chat_id=callback_query.message.chat.id,
