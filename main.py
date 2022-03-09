@@ -224,7 +224,7 @@ def langset(client, callback_query):
         app.edit_message_text(chat_id=callback_query.message.chat.id,
                               message_id=callback_query.message.message_id,
                               text=f"__Sorry no subtitle available for that specific language!\n"
-                              f"Try another one!__",
+                              f"Try English Language!__",
                               parse_mode='md')
 
 
