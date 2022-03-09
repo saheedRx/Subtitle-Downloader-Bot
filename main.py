@@ -169,9 +169,12 @@ def searchprev(client, callback_query):
 def chooselang(client, callback_query):
     sublink = callback_query.data.split('*')[-1]
     kb = [[InlineKeyboardButton("English 🇬🇧", callback_data=f'PREL*english*{sublink}')],
-          [InlineKeyboardButton("Tamil 🇮🇳", callback_data=f'PREL*tamil*{sublink}')],
-          [InlineKeyboardButton("Bengali 🇧🇩", callback_data=f'PREL*bengali*{sublink}')],
+          [InlineKeyboardButton("தமிழ் 🇮🇳", callback_data=f'PREL*tamil*{sublink}')],
+          [InlineKeyboardButton("বাংলা 🇧🇩", callback_data=f'PREL*bengali*{sublink}')],
           [InlineKeyboardButton("Hindi 🇮🇳", callback_data=f'PREL*hindi*{sublink}')],
+          [InlineKeyboardButton("සිංහල 🇱🇰", callback_data=f'PREL*sinhala*{sublink}')],
+          [InlineKeyboardButton("français 🇫🇷", callback_data=f'PREL*french*{sublink}')],
+          [InlineKeyboardButton("Malay 🇲🇾", callback_data=f'PREL*tamil*{sublink}')],
           [InlineKeyboardButton("Indonesian 🇮🇩", callback_data=f'PREL*indonesian*{sublink}')]]
     reply_markup = InlineKeyboardMarkup(kb)
     app.edit_message_text(chat_id=callback_query.message.chat.id,
